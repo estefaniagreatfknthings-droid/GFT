@@ -8,7 +8,7 @@ import {
   useVideoConfig,
 } from "remotion";
 import { fitText } from "@remotion/layout-utils";
-import { fontFamily } from "./font";
+import { displayFontFamily } from "./font";
 import {
   BIG_WORDS,
   BIG_WORD_CENTER_Y,
@@ -17,7 +17,8 @@ import {
   type BigWord,
 } from "./bigWords";
 
-const LETTER_SPACING = "-0.03em";
+const COLOR = "#FFD60A";
+const LETTER_SPACING = "0.005em";
 
 const Word: React.FC<{ word: BigWord }> = ({ word }) => {
   const frame = useCurrentFrame();
@@ -28,8 +29,8 @@ const Word: React.FC<{ word: BigWord }> = ({ word }) => {
     const { fontSize: fitted } = fitText({
       text: word.text.toUpperCase(),
       withinWidth: BIG_WORD_MAX_WIDTH,
-      fontFamily,
-      fontWeight: "900",
+      fontFamily: displayFontFamily,
+      fontWeight: "400",
       letterSpacing: LETTER_SPACING,
       validateFontIsLoaded: false,
     });
@@ -47,32 +48,34 @@ const Word: React.FC<{ word: BigWord }> = ({ word }) => {
     [1, 0],
     { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
-  const opacity = enter * exit;
 
   return (
     <AbsoluteFill
       style={{
         alignItems: "center",
         justifyContent: "flex-start",
-        paddingTop: BIG_WORD_CENTER_Y - fontSize * 0.62,
+        paddingTop: BIG_WORD_CENTER_Y - fontSize * 0.5,
       }}
     >
       <div
         style={{
-          fontFamily,
-          fontWeight: 900,
+          fontFamily: displayFontFamily,
+          fontWeight: 400,
           fontSize,
-          lineHeight: 0.92,
-          color: "#FFFFFF",
+          lineHeight: 0.9,
+          color: COLOR,
           textTransform: "uppercase",
           letterSpacing: LETTER_SPACING,
           textAlign: "center",
           whiteSpace: "pre",
-          opacity,
+          // borde oscuro suave: el amarillo tiene poco contraste sobre el cristal claro
+          WebkitTextStroke: "7px rgba(0,0,0,0.5)",
+          paintOrder: "stroke fill",
+          opacity: enter * exit,
           scale: interpolate(enter, [0, 1], [1.12, 1]),
           translate: `0px ${interpolate(enter, [0, 1], [26, 0])}px`,
           filter:
-            "drop-shadow(0 0 34px rgba(255,255,255,0.30)) drop-shadow(0 14px 40px rgba(0,0,0,0.55))",
+            "drop-shadow(0 0 38px rgba(255,214,10,0.38)) drop-shadow(0 14px 38px rgba(0,0,0,0.5))",
         }}
       >
         {word.text}

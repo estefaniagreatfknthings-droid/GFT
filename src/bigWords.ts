@@ -17,7 +17,7 @@ export const BIG_WORDS: BigWord[] = [
 ];
 
 /** Centro vertical del bloque, en unidades de composición (1920 de alto) */
-export const BIG_WORD_CENTER_Y = 300;
+export const BIG_WORD_CENTER_Y = 225;
 /** Ancho máximo que puede ocupar */
 export const BIG_WORD_MAX_WIDTH = 980;
 export const BIG_WORD_MAX_SIZE = 250;
