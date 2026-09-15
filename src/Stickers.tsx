@@ -1,6 +1,8 @@
 import {
   AbsoluteFill,
+  Easing,
   interpolate,
+  interpolateColors,
   Sequence,
   spring,
   useCurrentFrame,
@@ -11,11 +13,12 @@ import {
   IconCoins,
   IconDocument,
   IconMoney,
+  IconProtection,
   IconReturn,
   IconScales,
   IconSearch,
-  IconProtection,
   IconVoid,
+  type IconProps,
 } from "./icons";
 import {
   STICKERS,
@@ -25,7 +28,7 @@ import {
   type StickerName,
 } from "./stickers";
 
-const ICONS: Record<StickerName, React.FC> = {
+const ICONS: Record<StickerName, React.FC<IconProps>> = {
   document: IconDocument,
   scales: IconScales,
   void: IconVoid,
@@ -38,34 +41,54 @@ const ICONS: Record<StickerName, React.FC> = {
 };
 
 const ACCENT = "#FFD60A";
-const BADGE = "rgba(12, 14, 18, 0.82)";
+const BADGE = "rgba(12, 14, 18, 0.84)";
+const RADIUS = 46;
 
 const StickerBadge: React.FC<{ sticker: Sticker }> = ({ sticker }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const Icon = ICONS[sticker.icon];
+  const dir = sticker.side === "left" ? -1 : 1;
 
-  const enter = spring({
+  // Entrada seca: rebota por encima del 100% antes de asentarse
+  const punch = spring({
     frame,
     fps,
-    config: { damping: 12, mass: 0.5, stiffness: 170 },
-    durationInFrames: 16,
+    config: { damping: 9.5, mass: 0.42, stiffness: 280 },
+    durationInFrames: 20,
   });
 
-  const exitFrame = (sticker.durationMs / 1000) * fps - 8;
-  const exit = interpolate(frame, [exitFrame, exitFrame + 8], [1, 0], {
+  // El trazo del icono se dibuja justo después de que aterrice la placa
+  const draw = interpolate(frame, [2, 15], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.bezier(0.22, 1, 0.36, 1),
+  });
+
+  // Onda de impacto que sale despedida en el golpe
+  const burst = interpolate(frame, [0, 13], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.quad),
+  });
+
+  // Destello del borde en el instante del impacto
+  const flash = interpolate(frame, [0, 6], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
-  // flotación suave mientras se mantiene en pantalla
-  const float = Math.sin((frame / fps) * 2.4) * 7;
-  const dir = sticker.side === "left" ? -1 : 1;
+  const exitFrame = (sticker.durationMs / 1000) * fps - 7;
+  const exit = interpolate(frame, [exitFrame, exitFrame + 7], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.in(Easing.quad),
+  });
+
+  const float = Math.sin((frame / fps) * 2.2) * 6;
 
   return (
-    <AbsoluteFill
-      style={{ alignItems: "center", justifyContent: "flex-start" }}
-    >
+    <AbsoluteFill>
       <div
         style={{
           position: "absolute",
@@ -73,23 +96,42 @@ const StickerBadge: React.FC<{ sticker: Sticker }> = ({ sticker }) => {
           left: 540 + dir * STICKER_OFFSET_X - STICKER_SIZE / 2,
           width: STICKER_SIZE,
           height: STICKER_SIZE,
-          borderRadius: 46,
-          background: BADGE,
-          border: `4px solid ${ACCENT}`,
-          color: ACCENT,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: 42,
-          opacity: enter * exit,
-          scale: interpolate(enter, [0, 1], [0.45, 1]),
-          rotate: `${interpolate(enter, [0, 1], [dir * 14, dir * 3])}deg`,
-          translate: `0px ${interpolate(enter, [0, 1], [26, float])}px`,
-          boxShadow: "0 18px 44px rgba(0,0,0,0.45)",
-          filter: "drop-shadow(0 0 26px rgba(255,214,10,0.30))",
+          opacity: exit,
+          scale:
+            interpolate(punch, [0, 1], [0.25, 1]) *
+            interpolate(exit, [0, 1], [0.7, 1]),
+          rotate: `${interpolate(punch, [0, 1], [dir * 16, dir * 3])}deg`,
+          translate: `0px ${interpolate(punch, [0, 1], [34, float])}px`,
         }}
       >
-        <Icon />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            borderRadius: RADIUS,
+            border: `5px solid ${ACCENT}`,
+            opacity: (1 - burst) * 0.85,
+            scale: interpolate(burst, [0, 1], [1, 1.75]),
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            borderRadius: RADIUS,
+            background: BADGE,
+            border: `4px solid ${interpolateColors(flash, [0, 1], [ACCENT, "#FFFFFF"])}`,
+            color: ACCENT,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 42,
+            boxShadow: "0 18px 46px rgba(0,0,0,0.5)",
+            filter: `drop-shadow(0 0 ${interpolate(flash, [0, 1], [26, 60])}px rgba(255,214,10,${interpolate(flash, [0, 1], [0.3, 0.7])}))`,
+          }}
+        >
+          <Icon draw={draw} />
+        </div>
       </div>
     </AbsoluteFill>
   );

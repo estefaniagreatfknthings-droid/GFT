@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import {
   AbsoluteFill,
-  Easing,
   interpolate,
   Sequence,
+  spring,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -37,10 +37,12 @@ const Word: React.FC<{ word: BigWord }> = ({ word }) => {
     return Math.min(fitted, BIG_WORD_MAX_SIZE);
   }, [word.text]);
 
-  const enter = interpolate(timeMs, [0, 260], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-    easing: Easing.bezier(0.16, 1, 0.3, 1),
+  // entrada seca con rebote, para que golpee a la vez que la palabra hablada
+  const enter = spring({
+    frame,
+    fps,
+    config: { damping: 11, mass: 0.5, stiffness: 240 },
+    durationInFrames: 18,
   });
   const exit = interpolate(
     timeMs,
@@ -72,7 +74,7 @@ const Word: React.FC<{ word: BigWord }> = ({ word }) => {
           WebkitTextStroke: "7px rgba(0,0,0,0.5)",
           paintOrder: "stroke fill",
           opacity: enter * exit,
-          scale: interpolate(enter, [0, 1], [1.12, 1]),
+          scale: interpolate(enter, [0, 1], [1.18, 1]),
           translate: `0px ${interpolate(enter, [0, 1], [26, 0])}px`,
           filter:
             "drop-shadow(0 0 38px rgba(255,214,10,0.38)) drop-shadow(0 14px 38px rgba(0,0,0,0.5))",
