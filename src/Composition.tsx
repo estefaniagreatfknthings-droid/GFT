@@ -12,6 +12,7 @@ import { Video } from "@remotion/media";
 import type { Caption } from "@remotion/captions";
 import { Captions } from "./Captions";
 import { BigWords } from "./BigWords";
+import { Stickers } from "./Stickers";
 import { ZOOMS, ZOOM_IN_MS, ZOOM_OUT_MS } from "./zooms";
 
 const useZoomScale = () => {
@@ -79,6 +80,7 @@ export const SubtitledVideo: React.FC = () => {
       <ZoomLayer src="video.mp4" scale={scale} />
       <BigWords />
       <ZoomLayer src="person.webm" scale={scale} />
+      <Stickers />
       {captions ? <Captions captions={captions} /> : null}
     </AbsoluteFill>
   );
