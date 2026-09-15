@@ -1,0 +1,100 @@
+import { useMemo } from "react";
+import {
+  AbsoluteFill,
+  Easing,
+  interpolate,
+  Sequence,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
+import { fitText } from "@remotion/layout-utils";
+import { fontFamily } from "./font";
+import {
+  BIG_WORDS,
+  BIG_WORD_CENTER_Y,
+  BIG_WORD_MAX_SIZE,
+  BIG_WORD_MAX_WIDTH,
+  type BigWord,
+} from "./bigWords";
+
+const LETTER_SPACING = "-0.03em";
+
+const Word: React.FC<{ word: BigWord }> = ({ word }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const timeMs = (frame / fps) * 1000;
+
+  const fontSize = useMemo(() => {
+    const { fontSize: fitted } = fitText({
+      text: word.text.toUpperCase(),
+      withinWidth: BIG_WORD_MAX_WIDTH,
+      fontFamily,
+      fontWeight: "900",
+      letterSpacing: LETTER_SPACING,
+      validateFontIsLoaded: false,
+    });
+    return Math.min(fitted, BIG_WORD_MAX_SIZE);
+  }, [word.text]);
+
+  const enter = interpolate(timeMs, [0, 260], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.bezier(0.16, 1, 0.3, 1),
+  });
+  const exit = interpolate(
+    timeMs,
+    [word.durationMs - 320, word.durationMs],
+    [1, 0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+  );
+  const opacity = enter * exit;
+
+  return (
+    <AbsoluteFill
+      style={{
+        alignItems: "center",
+        justifyContent: "flex-start",
+        paddingTop: BIG_WORD_CENTER_Y - fontSize * 0.62,
+      }}
+    >
+      <div
+        style={{
+          fontFamily,
+          fontWeight: 900,
+          fontSize,
+          lineHeight: 0.92,
+          color: "#FFFFFF",
+          textTransform: "uppercase",
+          letterSpacing: LETTER_SPACING,
+          textAlign: "center",
+          whiteSpace: "pre",
+          opacity,
+          scale: interpolate(enter, [0, 1], [1.12, 1]),
+          translate: `0px ${interpolate(enter, [0, 1], [26, 0])}px`,
+          filter:
+            "drop-shadow(0 0 34px rgba(255,255,255,0.30)) drop-shadow(0 14px 40px rgba(0,0,0,0.55))",
+        }}
+      >
+        {word.text}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+export const BigWords: React.FC = () => {
+  const { fps } = useVideoConfig();
+
+  return (
+    <AbsoluteFill>
+      {BIG_WORDS.map((word) => (
+        <Sequence
+          key={word.atMs}
+          from={Math.round((word.atMs / 1000) * fps)}
+          durationInFrames={Math.round((word.durationMs / 1000) * fps)}
+        >
+          <Word word={word} />
+        </Sequence>
+      ))}
+    </AbsoluteFill>
+  );
+};

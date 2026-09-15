@@ -11,14 +11,15 @@ import {
 import { Video } from "@remotion/media";
 import type { Caption } from "@remotion/captions";
 import { Captions } from "./Captions";
+import { BigWords } from "./BigWords";
 import { ZOOMS, ZOOM_IN_MS, ZOOM_OUT_MS } from "./zooms";
 
-const ZoomedVideo: React.FC = () => {
+const useZoomScale = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const timeMs = (frame / fps) * 1000;
 
-  const scale = ZOOMS.reduce((current, zoom) => {
+  return ZOOMS.reduce((current, zoom) => {
     const progress = interpolate(
       timeMs,
       [
@@ -36,20 +37,28 @@ const ZoomedVideo: React.FC = () => {
     );
     return Math.max(current, 1 + (zoom.scale - 1) * progress);
   }, 1);
-
-  return (
-    <AbsoluteFill style={{ overflow: "hidden" }}>
-      <AbsoluteFill style={{ scale, transformOrigin: "50% 42%" }}>
-        <Video src={staticFile("video.mp4")} />
-      </AbsoluteFill>
-    </AbsoluteFill>
-  );
 };
+
+/**
+ * El fondo y el recorte del sujeto comparten el mismo zoom para que encajen;
+ * las palabras grandes van entre medias y sin zoom, lo que da sensación de capas.
+ */
+const ZoomLayer: React.FC<{ src: string; scale: number }> = ({
+  src,
+  scale,
+}) => (
+  <AbsoluteFill style={{ overflow: "hidden" }}>
+    <AbsoluteFill style={{ scale, transformOrigin: "50% 42%" }}>
+      <Video src={staticFile(src)} />
+    </AbsoluteFill>
+  </AbsoluteFill>
+);
 
 export const SubtitledVideo: React.FC = () => {
   const [captions, setCaptions] = useState<Caption[] | null>(null);
   const { delayRender, continueRender, cancelRender } = useDelayRender();
   const [handle] = useState(() => delayRender("Cargando subtítulos"));
+  const scale = useZoomScale();
 
   const fetchCaptions = useCallback(async () => {
     try {
@@ -67,7 +76,9 @@ export const SubtitledVideo: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
-      <ZoomedVideo />
+      <ZoomLayer src="video.mp4" scale={scale} />
+      <BigWords />
+      <ZoomLayer src="person.webm" scale={scale} />
       {captions ? <Captions captions={captions} /> : null}
     </AbsoluteFill>
   );

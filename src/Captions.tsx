@@ -20,6 +20,10 @@ const MAX_FONT_SIZE = 98;
 const MAX_BOX_WIDTH = 800;
 const LETTER_SPACING = "-0.02em";
 
+/** Resplandor: el de la palabra activa respira con el rebote de entrada */
+const GLOW_ACTIVE = "255, 214, 10";
+const GLOW_BASE = "255, 255, 255";
+
 const Word: React.FC<{
   text: string;
   isActive: boolean;
@@ -42,12 +46,17 @@ const Word: React.FC<{
     durationInFrames: 14,
   });
 
+  const glow = isActive
+    ? `drop-shadow(0 0 ${interpolate(pop, [0, 1], [30, 16])}px rgba(${GLOW_ACTIVE}, ${interpolate(pop, [0, 1], [0.75, 0.45])})) drop-shadow(0 0 46px rgba(${GLOW_ACTIVE}, 0.22))`
+    : `drop-shadow(0 0 14px rgba(${GLOW_BASE}, 0.22))`;
+
   return (
     <span
       style={{
         display: "inline-block",
         whiteSpace: "pre",
         color: isActive ? ACTIVE_COLOR : BASE_COLOR,
+        filter: glow,
         opacity: enter,
         scale: isActive
           ? interpolate(pop, [0, 1], [1.15, 1])
