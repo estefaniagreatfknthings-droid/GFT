@@ -1,0 +1,996 @@
+[
+ {
+  "text": "Reclamas",
+  "startMs": 80,
+  "endMs": 640,
+  "timestampMs": 80,
+  "confidence": null
+ },
+ {
+  "text": " algo",
+  "startMs": 640,
+  "endMs": 800,
+  "timestampMs": 640,
+  "confidence": null
+ },
+ {
+  "text": " en",
+  "startMs": 800,
+  "endMs": 880,
+  "timestampMs": 800,
+  "confidence": null
+ },
+ {
+  "text": " tu",
+  "startMs": 880,
+  "endMs": 1040,
+  "timestampMs": 880,
+  "confidence": null
+ },
+ {
+  "text": " empresa",
+  "startMs": 1040,
+  "endMs": 1360,
+  "timestampMs": 1040,
+  "confidence": null
+ },
+ {
+  "text": " y",
+  "startMs": 1360,
+  "endMs": 1520,
+  "timestampMs": 1360,
+  "confidence": null
+ },
+ {
+  "text": " a",
+  "startMs": 1520,
+  "endMs": 1600,
+  "timestampMs": 1520,
+  "confidence": null
+ },
+ {
+  "text": " las",
+  "startMs": 1600,
+  "endMs": 1760,
+  "timestampMs": 1600,
+  "confidence": null
+ },
+ {
+  "text": " dos",
+  "startMs": 1760,
+  "endMs": 2000,
+  "timestampMs": 1760,
+  "confidence": null
+ },
+ {
+  "text": " semanas",
+  "startMs": 2000,
+  "endMs": 2320,
+  "timestampMs": 2000,
+  "confidence": null
+ },
+ {
+  "text": " te",
+  "startMs": 2320,
+  "endMs": 2480,
+  "timestampMs": 2320,
+  "confidence": null
+ },
+ {
+  "text": " despiden.",
+  "startMs": 2480,
+  "endMs": 3040,
+  "timestampMs": 2480,
+  "confidence": null
+ },
+ {
+  "text": " Esto",
+  "startMs": 3040,
+  "endMs": 3280,
+  "timestampMs": 3040,
+  "confidence": null
+ },
+ {
+  "text": " tiene",
+  "startMs": 3280,
+  "endMs": 3520,
+  "timestampMs": 3280,
+  "confidence": null
+ },
+ {
+  "text": " un",
+  "startMs": 3520,
+  "endMs": 3600,
+  "timestampMs": 3520,
+  "confidence": null
+ },
+ {
+  "text": " nombre",
+  "startMs": 3600,
+  "endMs": 3920,
+  "timestampMs": 3600,
+  "confidence": null
+ },
+ {
+  "text": " y",
+  "startMs": 3920,
+  "endMs": 4080,
+  "timestampMs": 3920,
+  "confidence": null
+ },
+ {
+  "text": " te",
+  "startMs": 4080,
+  "endMs": 4320,
+  "timestampMs": 4080,
+  "confidence": null
+ },
+ {
+  "text": " aseguro",
+  "startMs": 4320,
+  "endMs": 4880,
+  "timestampMs": 4320,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 4880,
+  "endMs": 5040,
+  "timestampMs": 4880,
+  "confidence": null
+ },
+ {
+  "text": " no",
+  "startMs": 5040,
+  "endMs": 5280,
+  "timestampMs": 5040,
+  "confidence": null
+ },
+ {
+  "text": " es",
+  "startMs": 5280,
+  "endMs": 5440,
+  "timestampMs": 5280,
+  "confidence": null
+ },
+ {
+  "text": " casualidad.",
+  "startMs": 5440,
+  "endMs": 6160,
+  "timestampMs": 5440,
+  "confidence": null
+ },
+ {
+  "text": " Se",
+  "startMs": 6160,
+  "endMs": 6320,
+  "timestampMs": 6160,
+  "confidence": null
+ },
+ {
+  "text": " llama",
+  "startMs": 6320,
+  "endMs": 6640,
+  "timestampMs": 6320,
+  "confidence": null
+ },
+ {
+  "text": " represalia",
+  "startMs": 6640,
+  "endMs": 7520,
+  "timestampMs": 6640,
+  "confidence": null
+ },
+ {
+  "text": " y",
+  "startMs": 7520,
+  "endMs": 7680,
+  "timestampMs": 7520,
+  "confidence": null
+ },
+ {
+  "text": " la",
+  "startMs": 7680,
+  "endMs": 7840,
+  "timestampMs": 7680,
+  "confidence": null
+ },
+ {
+  "text": " ley",
+  "startMs": 7840,
+  "endMs": 8080,
+  "timestampMs": 7840,
+  "confidence": null
+ },
+ {
+  "text": " lo",
+  "startMs": 8080,
+  "endMs": 8240,
+  "timestampMs": 8080,
+  "confidence": null
+ },
+ {
+  "text": " protege",
+  "startMs": 8240,
+  "endMs": 8800,
+  "timestampMs": 8240,
+  "confidence": null
+ },
+ {
+  "text": " con",
+  "startMs": 8800,
+  "endMs": 9040,
+  "timestampMs": 8800,
+  "confidence": null
+ },
+ {
+  "text": " algo",
+  "startMs": 9040,
+  "endMs": 9360,
+  "timestampMs": 9040,
+  "confidence": null
+ },
+ {
+  "text": " muy",
+  "startMs": 9360,
+  "endMs": 9600,
+  "timestampMs": 9360,
+  "confidence": null
+ },
+ {
+  "text": " potente,",
+  "startMs": 9600,
+  "endMs": 10240,
+  "timestampMs": 9600,
+  "confidence": null
+ },
+ {
+  "text": " la",
+  "startMs": 10240,
+  "endMs": 10400,
+  "timestampMs": 10240,
+  "confidence": null
+ },
+ {
+  "text": " nulidad",
+  "startMs": 10400,
+  "endMs": 11040,
+  "timestampMs": 10400,
+  "confidence": null
+ },
+ {
+  "text": " del",
+  "startMs": 11040,
+  "endMs": 11280,
+  "timestampMs": 11040,
+  "confidence": null
+ },
+ {
+  "text": " despido.",
+  "startMs": 11280,
+  "endMs": 12080,
+  "timestampMs": 11280,
+  "confidence": null
+ },
+ {
+  "text": " Porque",
+  "startMs": 12080,
+  "endMs": 12320,
+  "timestampMs": 12080,
+  "confidence": null
+ },
+ {
+  "text": " no",
+  "startMs": 12320,
+  "endMs": 12480,
+  "timestampMs": 12320,
+  "confidence": null
+ },
+ {
+  "text": " es",
+  "startMs": 12480,
+  "endMs": 12560,
+  "timestampMs": 12480,
+  "confidence": null
+ },
+ {
+  "text": " lo",
+  "startMs": 12560,
+  "endMs": 12720,
+  "timestampMs": 12560,
+  "confidence": null
+ },
+ {
+  "text": " mismo",
+  "startMs": 12720,
+  "endMs": 13040,
+  "timestampMs": 12720,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 13040,
+  "endMs": 13200,
+  "timestampMs": 13040,
+  "confidence": null
+ },
+ {
+  "text": " te",
+  "startMs": 13200,
+  "endMs": 13360,
+  "timestampMs": 13200,
+  "confidence": null
+ },
+ {
+  "text": " indemnicen,",
+  "startMs": 13360,
+  "endMs": 14160,
+  "timestampMs": 13360,
+  "confidence": null
+ },
+ {
+  "text": " sobre",
+  "startMs": 14160,
+  "endMs": 14320,
+  "timestampMs": 14160,
+  "confidence": null
+ },
+ {
+  "text": " todo",
+  "startMs": 14320,
+  "endMs": 14480,
+  "timestampMs": 14320,
+  "confidence": null
+ },
+ {
+  "text": " si",
+  "startMs": 14480,
+  "endMs": 14640,
+  "timestampMs": 14480,
+  "confidence": null
+ },
+ {
+  "text": " tienes",
+  "startMs": 14640,
+  "endMs": 14880,
+  "timestampMs": 14640,
+  "confidence": null
+ },
+ {
+  "text": " poca",
+  "startMs": 14880,
+  "endMs": 15120,
+  "timestampMs": 14880,
+  "confidence": null
+ },
+ {
+  "text": " antigüedad,",
+  "startMs": 15120,
+  "endMs": 15840,
+  "timestampMs": 15120,
+  "confidence": null
+ },
+ {
+  "text": " a",
+  "startMs": 15840,
+  "endMs": 16000,
+  "timestampMs": 15840,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 16000,
+  "endMs": 16160,
+  "timestampMs": 16000,
+  "confidence": null
+ },
+ {
+  "text": " te",
+  "startMs": 16160,
+  "endMs": 16320,
+  "timestampMs": 16160,
+  "confidence": null
+ },
+ {
+  "text": " tengan",
+  "startMs": 16320,
+  "endMs": 16640,
+  "timestampMs": 16320,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 16640,
+  "endMs": 16880,
+  "timestampMs": 16640,
+  "confidence": null
+ },
+ {
+  "text": " reincorporar",
+  "startMs": 16880,
+  "endMs": 17840,
+  "timestampMs": 16880,
+  "confidence": null
+ },
+ {
+  "text": " en",
+  "startMs": 17840,
+  "endMs": 17920,
+  "timestampMs": 17840,
+  "confidence": null
+ },
+ {
+  "text": " la",
+  "startMs": 17920,
+  "endMs": 18080,
+  "timestampMs": 17920,
+  "confidence": null
+ },
+ {
+  "text": " empresa",
+  "startMs": 18080,
+  "endMs": 18480,
+  "timestampMs": 18080,
+  "confidence": null
+ },
+ {
+  "text": " y",
+  "startMs": 18480,
+  "endMs": 18720,
+  "timestampMs": 18480,
+  "confidence": null
+ },
+ {
+  "text": " pagarte",
+  "startMs": 18720,
+  "endMs": 19520,
+  "timestampMs": 18720,
+  "confidence": null
+ },
+ {
+  "text": " todos",
+  "startMs": 19520,
+  "endMs": 19760,
+  "timestampMs": 19520,
+  "confidence": null
+ },
+ {
+  "text": " los",
+  "startMs": 19760,
+  "endMs": 20000,
+  "timestampMs": 19760,
+  "confidence": null
+ },
+ {
+  "text": " salarios",
+  "startMs": 20000,
+  "endMs": 20560,
+  "timestampMs": 20000,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 20560,
+  "endMs": 20720,
+  "timestampMs": 20560,
+  "confidence": null
+ },
+ {
+  "text": " perdiste.",
+  "startMs": 20720,
+  "endMs": 21680,
+  "timestampMs": 20720,
+  "confidence": null
+ },
+ {
+  "text": " Además",
+  "startMs": 21680,
+  "endMs": 22320,
+  "timestampMs": 21680,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 22320,
+  "endMs": 22560,
+  "timestampMs": 22320,
+  "confidence": null
+ },
+ {
+  "text": " una",
+  "startMs": 22560,
+  "endMs": 22800,
+  "timestampMs": 22560,
+  "confidence": null
+ },
+ {
+  "text": " indemnización",
+  "startMs": 22800,
+  "endMs": 23440,
+  "timestampMs": 22800,
+  "confidence": null
+ },
+ {
+  "text": " por",
+  "startMs": 23440,
+  "endMs": 23600,
+  "timestampMs": 23440,
+  "confidence": null
+ },
+ {
+  "text": " daños",
+  "startMs": 23600,
+  "endMs": 23920,
+  "timestampMs": 23600,
+  "confidence": null
+ },
+ {
+  "text": " y",
+  "startMs": 23920,
+  "endMs": 24000,
+  "timestampMs": 23920,
+  "confidence": null
+ },
+ {
+  "text": " perjuicios.",
+  "startMs": 24000,
+  "endMs": 24480,
+  "timestampMs": 24000,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 24480,
+  "endMs": 24640,
+  "timestampMs": 24480,
+  "confidence": null
+ },
+ {
+  "text": " no",
+  "startMs": 24640,
+  "endMs": 24800,
+  "timestampMs": 24640,
+  "confidence": null
+ },
+ {
+  "text": " es",
+  "startMs": 24800,
+  "endMs": 24880,
+  "timestampMs": 24800,
+  "confidence": null
+ },
+ {
+  "text": " el",
+  "startMs": 24880,
+  "endMs": 25040,
+  "timestampMs": 24880,
+  "confidence": null
+ },
+ {
+  "text": " único",
+  "startMs": 25040,
+  "endMs": 25360,
+  "timestampMs": 25040,
+  "confidence": null
+ },
+ {
+  "text": " caso.",
+  "startMs": 25360,
+  "endMs": 25760,
+  "timestampMs": 25360,
+  "confidence": null
+ },
+ {
+  "text": " Por",
+  "startMs": 25760,
+  "endMs": 25920,
+  "timestampMs": 25760,
+  "confidence": null
+ },
+ {
+  "text": " ejemplo,",
+  "startMs": 25920,
+  "endMs": 26400,
+  "timestampMs": 25920,
+  "confidence": null
+ },
+ {
+  "text": " si",
+  "startMs": 26400,
+  "endMs": 26640,
+  "timestampMs": 26400,
+  "confidence": null
+ },
+ {
+  "text": " estás",
+  "startMs": 26640,
+  "endMs": 26960,
+  "timestampMs": 26640,
+  "confidence": null
+ },
+ {
+  "text": " embarazada",
+  "startMs": 26960,
+  "endMs": 27760,
+  "timestampMs": 26960,
+  "confidence": null
+ },
+ {
+  "text": " y",
+  "startMs": 27760,
+  "endMs": 27920,
+  "timestampMs": 27760,
+  "confidence": null
+ },
+ {
+  "text": " te",
+  "startMs": 27920,
+  "endMs": 28080,
+  "timestampMs": 27920,
+  "confidence": null
+ },
+ {
+  "text": " despiden,",
+  "startMs": 28080,
+  "endMs": 28880,
+  "timestampMs": 28080,
+  "confidence": null
+ },
+ {
+  "text": " también",
+  "startMs": 28880,
+  "endMs": 29280,
+  "timestampMs": 28880,
+  "confidence": null
+ },
+ {
+  "text": " puede",
+  "startMs": 29280,
+  "endMs": 29600,
+  "timestampMs": 29280,
+  "confidence": null
+ },
+ {
+  "text": " llegar",
+  "startMs": 29600,
+  "endMs": 29840,
+  "timestampMs": 29600,
+  "confidence": null
+ },
+ {
+  "text": " a",
+  "startMs": 29840,
+  "endMs": 29920,
+  "timestampMs": 29840,
+  "confidence": null
+ },
+ {
+  "text": " ser",
+  "startMs": 29920,
+  "endMs": 30080,
+  "timestampMs": 29920,
+  "confidence": null
+ },
+ {
+  "text": " nulo,",
+  "startMs": 30080,
+  "endMs": 30560,
+  "timestampMs": 30080,
+  "confidence": null
+ },
+ {
+  "text": " aunque",
+  "startMs": 30560,
+  "endMs": 30880,
+  "timestampMs": 30560,
+  "confidence": null
+ },
+ {
+  "text": " la",
+  "startMs": 30880,
+  "endMs": 30960,
+  "timestampMs": 30880,
+  "confidence": null
+ },
+ {
+  "text": " empresa",
+  "startMs": 30960,
+  "endMs": 31280,
+  "timestampMs": 30960,
+  "confidence": null
+ },
+ {
+  "text": " diga",
+  "startMs": 31280,
+  "endMs": 31600,
+  "timestampMs": 31280,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 31600,
+  "endMs": 31760,
+  "timestampMs": 31600,
+  "confidence": null
+ },
+ {
+  "text": " no",
+  "startMs": 31760,
+  "endMs": 31920,
+  "timestampMs": 31760,
+  "confidence": null
+ },
+ {
+  "text": " lo",
+  "startMs": 31920,
+  "endMs": 32080,
+  "timestampMs": 31920,
+  "confidence": null
+ },
+ {
+  "text": " sabía.",
+  "startMs": 32080,
+  "endMs": 32640,
+  "timestampMs": 32080,
+  "confidence": null
+ },
+ {
+  "text": " Eso",
+  "startMs": 32640,
+  "endMs": 32960,
+  "timestampMs": 32640,
+  "confidence": null
+ },
+ {
+  "text": " sí,",
+  "startMs": 32960,
+  "endMs": 33280,
+  "timestampMs": 32960,
+  "confidence": null
+ },
+ {
+  "text": " en",
+  "startMs": 33280,
+  "endMs": 33440,
+  "timestampMs": 33280,
+  "confidence": null
+ },
+ {
+  "text": " los",
+  "startMs": 33440,
+  "endMs": 33600,
+  "timestampMs": 33440,
+  "confidence": null
+ },
+ {
+  "text": " dos",
+  "startMs": 33600,
+  "endMs": 33840,
+  "timestampMs": 33600,
+  "confidence": null
+ },
+ {
+  "text": " casos",
+  "startMs": 33840,
+  "endMs": 34240,
+  "timestampMs": 33840,
+  "confidence": null
+ },
+ {
+  "text": " hay",
+  "startMs": 34240,
+  "endMs": 34400,
+  "timestampMs": 34240,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 34400,
+  "endMs": 34560,
+  "timestampMs": 34400,
+  "confidence": null
+ },
+ {
+  "text": " demostrarlo",
+  "startMs": 34560,
+  "endMs": 35360,
+  "timestampMs": 34560,
+  "confidence": null
+ },
+ {
+  "text": " caso",
+  "startMs": 35360,
+  "endMs": 35680,
+  "timestampMs": 35360,
+  "confidence": null
+ },
+ {
+  "text": " a",
+  "startMs": 35680,
+  "endMs": 35840,
+  "timestampMs": 35680,
+  "confidence": null
+ },
+ {
+  "text": " caso.",
+  "startMs": 35840,
+  "endMs": 36160,
+  "timestampMs": 35840,
+  "confidence": null
+ },
+ {
+  "text": " Soy",
+  "startMs": 36160,
+  "endMs": 36400,
+  "timestampMs": 36160,
+  "confidence": null
+ },
+ {
+  "text": " Juan",
+  "startMs": 36400,
+  "endMs": 36640,
+  "timestampMs": 36400,
+  "confidence": null
+ },
+ {
+  "text": " Valorente,",
+  "startMs": 36640,
+  "endMs": 37280,
+  "timestampMs": 36640,
+  "confidence": null
+ },
+ {
+  "text": " abogado",
+  "startMs": 37280,
+  "endMs": 37600,
+  "timestampMs": 37280,
+  "confidence": null
+ },
+ {
+  "text": " laboralista",
+  "startMs": 37600,
+  "endMs": 38080,
+  "timestampMs": 37600,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 38080,
+  "endMs": 38160,
+  "timestampMs": 38080,
+  "confidence": null
+ },
+ {
+  "text": " Morang",
+  "startMs": 38160,
+  "endMs": 38640,
+  "timestampMs": 38160,
+  "confidence": null
+ },
+ {
+  "text": " Ortiz,",
+  "startMs": 38640,
+  "endMs": 39200,
+  "timestampMs": 38640,
+  "confidence": null
+ },
+ {
+  "text": " y",
+  "startMs": 39200,
+  "endMs": 39360,
+  "timestampMs": 39200,
+  "confidence": null
+ },
+ {
+  "text": " si",
+  "startMs": 39360,
+  "endMs": 39440,
+  "timestampMs": 39360,
+  "confidence": null
+ },
+ {
+  "text": " crees",
+  "startMs": 39440,
+  "endMs": 39760,
+  "timestampMs": 39440,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 39760,
+  "endMs": 39920,
+  "timestampMs": 39760,
+  "confidence": null
+ },
+ {
+  "text": " este",
+  "startMs": 39920,
+  "endMs": 40240,
+  "timestampMs": 39920,
+  "confidence": null
+ },
+ {
+  "text": " puede",
+  "startMs": 40240,
+  "endMs": 40480,
+  "timestampMs": 40240,
+  "confidence": null
+ },
+ {
+  "text": " ser",
+  "startMs": 40480,
+  "endMs": 40720,
+  "timestampMs": 40480,
+  "confidence": null
+ },
+ {
+  "text": " tu",
+  "startMs": 40720,
+  "endMs": 40880,
+  "timestampMs": 40720,
+  "confidence": null
+ },
+ {
+  "text": " caso,",
+  "startMs": 40880,
+  "endMs": 41440,
+  "timestampMs": 40880,
+  "confidence": null
+ },
+ {
+  "text": " escríbenos",
+  "startMs": 41440,
+  "endMs": 42160,
+  "timestampMs": 41440,
+  "confidence": null
+ },
+ {
+  "text": " por",
+  "startMs": 42160,
+  "endMs": 42320,
+  "timestampMs": 42160,
+  "confidence": null
+ },
+ {
+  "text": " privado.",
+  "startMs": 42320,
+  "endMs": 42720,
+  "timestampMs": 42320,
+  "confidence": null
+ },
+ {
+  "text": " Atendemos",
+  "startMs": 42720,
+  "endMs": 43360,
+  "timestampMs": 42720,
+  "confidence": null
+ },
+ {
+  "text": " online",
+  "startMs": 43360,
+  "endMs": 43840,
+  "timestampMs": 43360,
+  "confidence": null
+ },
+ {
+  "text": " a",
+  "startMs": 43840,
+  "endMs": 44000,
+  "timestampMs": 43840,
+  "confidence": null
+ },
+ {
+  "text": " toda",
+  "startMs": 44000,
+  "endMs": 44240,
+  "timestampMs": 44000,
+  "confidence": null
+ },
+ {
+  "text": " España.",
+  "startMs": 44240,
+  "endMs": 44652,
+  "timestampMs": 44240,
+  "confidence": null
+ }
+]

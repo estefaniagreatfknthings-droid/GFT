@@ -1,25 +1,32 @@
-import { CalculateMetadataFunction, Composition } from "remotion";
+import { useCallback, useEffect, useState } from "react";
+import { AbsoluteFill, staticFile, useDelayRender } from "remotion";
+import { Video } from "@remotion/media";
+import type { Caption } from "@remotion/captions";
+import { Captions } from "./Captions";
 
-type Props = {};
+export const SubtitledVideo: React.FC = () => {
+  const [captions, setCaptions] = useState<Caption[] | null>(null);
+  const { delayRender, continueRender, cancelRender } = useDelayRender();
+  const [handle] = useState(() => delayRender("Cargando subtítulos"));
 
-const calculateMetadata: CalculateMetadataFunction<Props> = () => {
-  return {};
-};
+  const fetchCaptions = useCallback(async () => {
+    try {
+      const response = await fetch(staticFile("captions.json"));
+      setCaptions(await response.json());
+      continueRender(handle);
+    } catch (e) {
+      cancelRender(e);
+    }
+  }, [continueRender, cancelRender, handle]);
 
-export const MyComposition = () => {
+  useEffect(() => {
+    fetchCaptions();
+  }, [fetchCaptions]);
+
   return (
-    <Composition
-      id="MyComp"
-      component={MyComponent}
-      durationInFrames={60}
-      fps={30}
-      width={1280}
-      height={720}
-      calculateMetadata={calculateMetadata}
-    />
+    <AbsoluteFill style={{ backgroundColor: "black" }}>
+      <Video src={staticFile("video.mp4")} />
+      {captions ? <Captions captions={captions} /> : null}
+    </AbsoluteFill>
   );
-};
-
-export const MyComponent: React.FC<Props> = () => {
-  return null;
 };
