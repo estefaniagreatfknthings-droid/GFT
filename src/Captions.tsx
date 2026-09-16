@@ -14,14 +14,14 @@ import { fontFamily } from "./font";
 
 const SWITCH_CAPTIONS_EVERY_MS = 800;
 
-const ACTIVE_COLOR = "#FFD60A";
+const ACTIVE_COLOR = "#A8C7F9";
 const BASE_COLOR = "#FFFFFF";
-const MAX_FONT_SIZE = 98;
+const MAX_FONT_SIZE = 120;
 const MAX_BOX_WIDTH = 800;
-const LETTER_SPACING = "-0.02em";
+const LETTER_SPACING = "0.01em";
 
 /** Resplandor: el de la palabra activa respira con el rebote de entrada */
-const GLOW_ACTIVE = "255, 214, 10";
+const GLOW_ACTIVE = "168, 199, 249";
 const GLOW_BASE = "255, 255, 255";
 
 const Word: React.FC<{
@@ -82,7 +82,7 @@ const CaptionPage: React.FC<{ page: TikTokPage }> = ({ page }) => {
       maxLines: 2,
       maxBoxWidth: MAX_BOX_WIDTH,
       fontFamily,
-      fontWeight: "900",
+      fontWeight: "400",
       letterSpacing: LETTER_SPACING,
       validateFontIsLoaded: false,
     });
@@ -102,13 +102,13 @@ const CaptionPage: React.FC<{ page: TikTokPage }> = ({ page }) => {
       <div
         style={{
           fontFamily,
-          fontWeight: 900,
+          fontWeight: 400,
           fontSize,
           lineHeight: 1.12,
           textAlign: "center",
           textTransform: "uppercase",
           letterSpacing: LETTER_SPACING,
-          WebkitTextStroke: "9px #000000",
+          WebkitTextStroke: "7px #000000",
           paintOrder: "stroke fill",
           filter: "drop-shadow(0 12px 24px rgba(0,0,0,0.6))",
         }}

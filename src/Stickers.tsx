@@ -40,7 +40,7 @@ const ICONS: Record<StickerName, React.FC<IconProps>> = {
   chat: IconChat,
 };
 
-const ACCENT = "#FFD60A";
+const ACCENT = "#A8C7F9";
 const BADGE = "rgba(12, 14, 18, 0.84)";
 const RADIUS = 46;
 
@@ -127,7 +127,7 @@ const StickerBadge: React.FC<{ sticker: Sticker }> = ({ sticker }) => {
             justifyContent: "center",
             padding: 42,
             boxShadow: "0 18px 46px rgba(0,0,0,0.5)",
-            filter: `drop-shadow(0 0 ${interpolate(flash, [0, 1], [26, 60])}px rgba(255,214,10,${interpolate(flash, [0, 1], [0.3, 0.7])}))`,
+            filter: `drop-shadow(0 0 ${interpolate(flash, [0, 1], [26, 60])}px rgba(168,199,249,${interpolate(flash, [0, 1], [0.3, 0.7])}))`,
           }}
         >
           <Icon draw={draw} />
