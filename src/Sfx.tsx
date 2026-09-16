@@ -3,7 +3,7 @@ import { Audio } from "@remotion/media";
 import { ZOOMS } from "./zooms";
 import { BIG_WORDS } from "./bigWords";
 import { STICKERS } from "./stickers";
-import { IMPACTS, POPS, WHOOSHES, type SfxClip } from "./sfxPalette";
+import { IMPACTS, POP, WHOOSHES, type SfxClip } from "./sfxPalette";
 
 const WHOOSH_VOLUME = 0.3;
 const IMPACT_VOLUME = 0.26;
@@ -11,28 +11,26 @@ const POP_VOLUME = 0.38;
 
 type Event = { atMs: number; clip: SfxClip; volume: number };
 
-/**
- * Reparte los clips en rotación: con cuatro variantes y diez zooms, ninguna
- * suena dos veces seguidas y cada una aparece dos o tres veces en todo el vídeo.
- */
-const rotate = (
-  times: number[],
-  clips: SfxClip[],
-  volume: number,
-): Event[] =>
-  times.map((atMs, index) => ({
-    atMs,
-    clip: clips[index % clips.length],
-    volume,
-  }));
-
 export const Sfx: React.FC = () => {
   const { fps } = useVideoConfig();
 
   const events: Event[] = [
-    ...rotate(ZOOMS.map((z) => z.atMs), WHOOSHES, WHOOSH_VOLUME),
-    ...rotate(BIG_WORDS.map((w) => w.atMs), IMPACTS, IMPACT_VOLUME),
-    ...rotate(STICKERS.map((s) => s.atMs), POPS, POP_VOLUME),
+    // los barridos van rotando para que ninguno suene dos veces seguidas
+    ...ZOOMS.map((zoom, index) => ({
+      atMs: zoom.atMs,
+      clip: WHOOSHES[index % WHOOSHES.length],
+      volume: WHOOSH_VOLUME,
+    })),
+    ...BIG_WORDS.filter((word) => word.hit).map((word, index) => ({
+      atMs: word.atMs,
+      clip: IMPACTS[index % IMPACTS.length],
+      volume: IMPACT_VOLUME,
+    })),
+    ...STICKERS.map((sticker) => ({
+      atMs: sticker.atMs,
+      clip: POP,
+      volume: POP_VOLUME,
+    })),
   ];
 
   return (

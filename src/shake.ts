@@ -14,7 +14,7 @@ const NONE: ShakeOffset = { x: 0, y: 0, rotate: 0 };
  * 10 fotogramas, como el retroceso de una cámara al recibir un impacto.
  */
 export const getShake = (frame: number, fps: number): ShakeOffset => {
-  for (const word of BIG_WORDS) {
+  for (const word of BIG_WORDS.filter((w) => w.hit)) {
     const start = (word.atMs / 1000) * fps;
     const t = frame - start;
     if (t < 0 || t > 14) {
