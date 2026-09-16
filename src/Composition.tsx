@@ -13,6 +13,8 @@ import type { Caption } from "@remotion/captions";
 import { Captions } from "./Captions";
 import { BigWords } from "./BigWords";
 import { Stickers } from "./Stickers";
+import { Sfx } from "./Sfx";
+import { getShake } from "./shake";
 import { ZOOMS, ZOOM_IN_MS, ZOOM_OUT_MS } from "./zooms";
 
 const useZoomScale = () => {
@@ -60,6 +62,9 @@ export const SubtitledVideo: React.FC = () => {
   const { delayRender, continueRender, cancelRender } = useDelayRender();
   const [handle] = useState(() => delayRender("Cargando subtítulos"));
   const scale = useZoomScale();
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const shake = getShake(frame, fps);
 
   const fetchCaptions = useCallback(async () => {
     try {
@@ -76,12 +81,23 @@ export const SubtitledVideo: React.FC = () => {
   }, [fetchCaptions]);
 
   return (
-    <AbsoluteFill style={{ backgroundColor: "black" }}>
-      <ZoomLayer src="video.mp4" scale={scale} />
-      <BigWords />
-      <ZoomLayer src="person.webm" scale={scale} />
-      <Stickers />
-      {captions ? <Captions captions={captions} /> : null}
+    <AbsoluteFill style={{ backgroundColor: "black", overflow: "hidden" }}>
+      {/* la sacudida mueve todo el encuadre, como una cámara real */}
+      <AbsoluteFill
+        style={{
+          translate: `${shake.x}px ${shake.y}px`,
+          rotate: `${shake.rotate}deg`,
+          // un pelín de margen para que la sacudida no descubra los bordes
+          scale: 1.03,
+        }}
+      >
+        <ZoomLayer src="video.mp4" scale={scale} />
+        <BigWords />
+        <ZoomLayer src="person.webm" scale={scale} />
+        <Stickers />
+        {captions ? <Captions captions={captions} /> : null}
+      </AbsoluteFill>
+      <Sfx />
     </AbsoluteFill>
   );
 };
