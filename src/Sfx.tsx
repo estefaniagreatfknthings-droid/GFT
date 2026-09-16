@@ -12,7 +12,7 @@ const WHOOSH_LEAD_MS = 240;
 const IMPACT_LEAD_MS = 80;
 
 const WHOOSH_VOLUME = 0.3;
-const IMPACT_VOLUME = 0.42;
+const IMPACT_VOLUME = 0.26;
 const POP_VOLUME = 0.38;
 
 export const Sfx: React.FC = () => {
