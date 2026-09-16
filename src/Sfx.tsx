@@ -16,7 +16,7 @@ export const Sfx: React.FC = () => {
 
   const events: Event[] = [
     // los barridos van rotando para que ninguno suene dos veces seguidas
-    ...ZOOMS.map((zoom, index) => ({
+    ...ZOOMS.filter((zoom) => zoom.hit).map((zoom, index) => ({
       atMs: zoom.atMs,
       clip: WHOOSHES[index % WHOOSHES.length],
       volume: WHOOSH_VOLUME,

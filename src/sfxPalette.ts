@@ -5,12 +5,11 @@ export type SfxClip = {
   durationSec: number;
 };
 
-/** Barridos de aire para los zooms: dos originales y dos con el tono alterado */
+/** Barridos de aire para los tres zooms sonorizados */
 export const WHOOSHES: SfxClip[] = [
   { file: "sfx/whoosh-a.mp3", leadMs: 237, durationSec: 0.6 },
   { file: "sfx/whoosh-b.mp3", leadMs: 20, durationSec: 0.57 },
   { file: "sfx/whoosh-c.mp3", leadMs: 289, durationSec: 0.73 },
-  { file: "sfx/whoosh-d.mp3", leadMs: 17, durationSec: 0.48 },
 ];
 
 /** Golpes graves para los tres remates */

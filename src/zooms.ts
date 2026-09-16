@@ -7,19 +7,24 @@ export type Zoom = {
   scale: number;
   /** Palabra que dispara el zoom */
   word: string;
+  /**
+   * Solo estos tres llevan barrido de aire. El resto se acercan en silencio:
+   * el movimiento ya se ve, y sonorizarlos todos saturaba la mezcla.
+   */
+  hit?: boolean;
 };
 
 export const ZOOMS: Zoom[] = [
-  { atMs: 2480, holdMs: 1200, scale: 1.14, word: "despiden" },
+  { atMs: 2480, holdMs: 1200, scale: 1.14, word: "despiden", hit: true },
   { atMs: 6640, holdMs: 1300, scale: 1.12, word: "represalia" },
-  { atMs: 10400, holdMs: 1500, scale: 1.15, word: "nulidad" },
+  { atMs: 10400, holdMs: 1500, scale: 1.15, word: "nulidad", hit: true },
   { atMs: 16880, holdMs: 1300, scale: 1.12, word: "reincorporar" },
   { atMs: 20000, holdMs: 1500, scale: 1.13, word: "salarios" },
   { atMs: 22800, holdMs: 1200, scale: 1.11, word: "indemnización" },
   { atMs: 26960, holdMs: 1300, scale: 1.13, word: "embarazada" },
   { atMs: 30080, holdMs: 1000, scale: 1.11, word: "nulo" },
   { atMs: 34560, holdMs: 1100, scale: 1.12, word: "demostrarlo" },
-  { atMs: 41440, holdMs: 1700, scale: 1.15, word: "escríbenos" },
+  { atMs: 41440, holdMs: 1700, scale: 1.15, word: "escríbenos", hit: true },
 ];
 
 /** Cuánto tarda en acercarse / alejarse, en milisegundos */
