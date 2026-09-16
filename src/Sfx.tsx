@@ -3,54 +3,53 @@ import { Audio } from "@remotion/media";
 import { ZOOMS } from "./zooms";
 import { BIG_WORDS } from "./bigWords";
 import { STICKERS } from "./stickers";
-
-/**
- * Cada sonido tiene su golpe en un punto distinto del archivo, así que se
- * lanzan con adelanto para que el impacto caiga justo en el fotograma clave.
- */
-const WHOOSH_LEAD_MS = 240;
-const IMPACT_LEAD_MS = 80;
+import { IMPACTS, POPS, WHOOSHES, type SfxClip } from "./sfxPalette";
 
 const WHOOSH_VOLUME = 0.3;
 const IMPACT_VOLUME = 0.26;
 const POP_VOLUME = 0.38;
 
+type Event = { atMs: number; clip: SfxClip; volume: number };
+
+/**
+ * Reparte los clips en rotación: con cuatro variantes y diez zooms, ninguna
+ * suena dos veces seguidas y cada una aparece dos o tres veces en todo el vídeo.
+ */
+const rotate = (
+  times: number[],
+  clips: SfxClip[],
+  volume: number,
+): Event[] =>
+  times.map((atMs, index) => ({
+    atMs,
+    clip: clips[index % clips.length],
+    volume,
+  }));
+
 export const Sfx: React.FC = () => {
   const { fps } = useVideoConfig();
-  const at = (ms: number) => Math.max(0, Math.round((ms / 1000) * fps));
-  const len = (seconds: number) => Math.round(seconds * fps);
+
+  const events: Event[] = [
+    ...rotate(ZOOMS.map((z) => z.atMs), WHOOSHES, WHOOSH_VOLUME),
+    ...rotate(BIG_WORDS.map((w) => w.atMs), IMPACTS, IMPACT_VOLUME),
+    ...rotate(STICKERS.map((s) => s.atMs), POPS, POP_VOLUME),
+  ];
 
   return (
     <>
-      {ZOOMS.map((zoom) => (
-        <Sequence
-          key={`zoom-${zoom.atMs}`}
-          from={at(zoom.atMs - WHOOSH_LEAD_MS)}
-          durationInFrames={len(0.65)}
-        >
-          <Audio src={staticFile("sfx/whoosh.mp3")} volume={WHOOSH_VOLUME} />
-        </Sequence>
-      ))}
-
-      {BIG_WORDS.map((word) => (
-        <Sequence
-          key={`word-${word.atMs}`}
-          from={at(word.atMs - IMPACT_LEAD_MS)}
-          durationInFrames={len(1.05)}
-        >
-          <Audio src={staticFile("sfx/impact.mp3")} volume={IMPACT_VOLUME} />
-        </Sequence>
-      ))}
-
-      {STICKERS.map((sticker) => (
-        <Sequence
-          key={`sticker-${sticker.atMs}`}
-          from={at(sticker.atMs)}
-          durationInFrames={len(0.25)}
-        >
-          <Audio src={staticFile("sfx/pop.mp3")} volume={POP_VOLUME} />
-        </Sequence>
-      ))}
+      {events.map((event) => {
+        // se lanza con adelanto para que el golpe del archivo caiga en el fotograma exacto
+        const startMs = event.atMs - event.clip.leadMs;
+        return (
+          <Sequence
+            key={`${event.clip.file}-${event.atMs}`}
+            from={Math.max(0, Math.round((startMs / 1000) * fps))}
+            durationInFrames={Math.round(event.clip.durationSec * fps)}
+          >
+            <Audio src={staticFile(event.clip.file)} volume={event.volume} />
+          </Sequence>
+        );
+      })}
     </>
   );
 };
